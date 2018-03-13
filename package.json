@@ -1,14 +1,16 @@
 {
   "name": "until-now-client-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "until-now client api",
   "main": "src/index.js",
   "scripts": {
-    "start": "node .",
-    "develop": "nodemon ."
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Dídac García",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2"
+  }
 }
