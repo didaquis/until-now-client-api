@@ -32,6 +32,10 @@ const untilNowApi = {
 		return this._call('get', 'api/items');
 	},
 
+	listItemsInCollection(id){
+		return this._call('get', `api/items/${id}`);
+	},
+
 	createCollection(name, id_user){
 		const body = {
 			"name": name,

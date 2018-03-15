@@ -31,6 +31,16 @@ describe('Testing client API', () => {
 	// 	.catch(done);
 	// });
 
+	it('should list all items in a collection', done => {
+		untilNowApi.listItemsInCollection('5aa6bcab341a690ff909faef')
+		.then(res => {
+			assert.equal(res.status, 'OK', 'result should be OK')
+
+			done();
+		})
+		.catch(done);
+	});
+
 	it('should list items', done => {
 		untilNowApi.listItems()
 		.then(res => {
