@@ -54,11 +54,10 @@ describe('Testing client API', () => {
 
 // createCollection(name, id_user)
 // createItem(name, dateStart, dateEnd, refNumber, notes, url, id_collection)
-// deleteCollection(id)
 
 	// It Works
 	// it('should delete one item', done => {
-	// 	untilNowApi.deleteItem('5aaa62f3a69e829456a7a928')
+	// 	untilNowApi.deleteItem('5aaa654da69e829456a7a930')
 	// 	.then((res =>{
 	// 		assert.equal(res.status, 'OK', 'result should be OK');
 
@@ -66,84 +65,14 @@ describe('Testing client API', () => {
 	// 	})).catch(done);
 	// });
 
-// **************************************************++++
+	// Esto borra la colección, pero no consigo que borre los hijos relacionados con ella!!!  :-(
+	// it('should delete one collection', done => {
+	// 	untilNowApi.deleteCollection('5aaa7cb6a69e829456a7a936')
+	// 	.then((res =>{
+	// 		assert.equal(res.status, 'OK', 'result should be OK');
 
-	// it('should register and delete', done => {
-	// 	let userId = '';
+	// 		done();
+	// 	})).catch(done);
+	// });
 
-	// 	untilNowApi.registerUser('name', 'surname', 'email@email.com', 'username', 'PASSword1234')
-	// 		.then((res) => {
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-
-	// 			userId = res.data.id;
-	// 			return untilNowApi.listAllUsers();
-	// 		})
-	// 		.then(res => {
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-
-	// 			assert(res.data && res.data.length > 0, 'should return data array');
-
-	// 			return untilNowApi.deleteUser(userId, 'username', 'PASSword1234');
-	// 		})
-	// 		.then((res) =>{
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-	// 			done();
-	// 		})
-	// 		.catch(done);
-	// })
-
-
-	// it('should register, update, and delete', done => {
-	// 	let userId = '';
-
-	// 	untilNowApi.registerUser('name', 'surname', 'email@email.com', 'username', 'PASSword1234')
-	// 		.then((res) => {
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-				
-	// 			userId = res.data.id;
-	// 			return untilNowApi.listAllUsers();
-	// 		})
-	// 		.then(res => {
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-
-	// 			assert(res.data && res.data.length > 0, 'should return data array');
-
-	// 			return untilNowApi.updateUser(userId, 'na', 'su', 'em@email.com', 'newUsername', 'newPassword123', 'username', 'PASSword1234');
-	// 		}).then((res) =>{
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-
-	// 			return untilNowApi.deleteUser(userId, 'newUsername', 'newPassword123');
-		
-	// 		}).then(res =>{
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-	// 			done();
-	// 		})
-	// 		.catch(done);
-	// })
-
-
-	// it('should register, retrieve and delete', done => {
-	// 	let userId = '';
-
-	// 	untilNowApi.registerUser('name', 'surname', 'email@email.com', 'username', 'PASSword1234')
-	// 		.then((res) => {
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-
-	// 			userId = res.data.id;
-	// 			return untilNowApi.retrieveUser(userId);
-	// 		})
-	// 		.then(res => {
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-
-	// 			assert(res.data.email == 'email@email.com', 'should return an email');
-
-	// 			return untilNowApi.deleteUser(userId, 'username', 'PASSword1234');
-	// 		})
-	// 		.then((res) =>{
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-	// 			done();
-	// 		})
-	// 		.catch(done);
-	// })
-
-})
+});
