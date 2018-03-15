@@ -21,6 +21,7 @@ describe('Testing client API', () => {
 		.catch(done);
 	});
 
+	// It works!
 	// it('should retrieve a collection', done => {
 	// 	untilNowApi.retrieveCollection('5aa6bcab341a690ff909faef')
 	// 	.then(res => {
@@ -54,8 +55,18 @@ describe('Testing client API', () => {
 // createCollection(name, id_user)
 // createItem(name, dateStart, dateEnd, refNumber, notes, url, id_collection)
 // deleteCollection(id)
-// deleteItem(id)
 
+	// It Works
+	// it('should delete one item', done => {
+	// 	untilNowApi.deleteItem('5aaa62f3a69e829456a7a928')
+	// 	.then((res =>{
+	// 		assert.equal(res.status, 'OK', 'result should be OK');
+
+	// 		done();
+	// 	})).catch(done);
+	// });
+
+// **************************************************++++
 
 	// it('should register and delete', done => {
 	// 	let userId = '';
