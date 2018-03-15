@@ -24,8 +24,16 @@ const untilNowApi = {
 		return this._call('get','api/collections');
 	},
 
+	retrieveCollection(id){
+		return this._call('get',`api/collection/${id}`);
+	},
+
 	listItems(){
 		return this._call('get', 'api/items');
+	},
+
+	listItemsInCollection(id){
+		return this._call('get', `api/items/${id}`);
 	},
 
 	createCollection(name, id_user){

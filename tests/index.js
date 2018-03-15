@@ -19,7 +19,27 @@ describe('Testing client API', () => {
 			done();
 		})
 		.catch(done);
-	})
+	});
+
+	// it('should retrieve a collection', done => {
+	// 	untilNowApi.retrieveCollection('5aa6bcab341a690ff909faef')
+	// 	.then(res => {
+	// 		assert.equal(res.status, 'OK', 'result should be OK')
+
+	// 		done();
+	// 	})
+	// 	.catch(done);
+	// });
+
+	it('should list all items in a collection', done => {
+		untilNowApi.listItemsInCollection('5aa6bcab341a690ff909faef')
+		.then(res => {
+			assert.equal(res.status, 'OK', 'result should be OK')
+
+			done();
+		})
+		.catch(done);
+	});
 
 	it('should list items', done => {
 		untilNowApi.listItems()
@@ -29,7 +49,7 @@ describe('Testing client API', () => {
 			done();
 		})
 		.catch(done);
-	})
+	});
 
 // createCollection(name, id_user)
 // createItem(name, dateStart, dateEnd, refNumber, notes, url, id_collection)

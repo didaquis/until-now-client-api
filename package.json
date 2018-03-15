@@ -1,13 +1,13 @@
 {
   "name": "until-now-client-api",
-  "version": "1.0.1",
+  "version": "0.0.2",
   "description": "until-now client api",
   "main": "src/index.js",
   "scripts": {
     "start": "node .",
     "test": "mocha tests"
   },
-  "keywords": [],
+  "keywords": ["API", "client API"],
   "author": "Dídac García",
   "license": "ISC",
   "dependencies": {
