@@ -19,7 +19,28 @@ describe('Testing client API', () => {
 			done();
 		})
 		.catch(done);
-	})
+	});
+
+	// It works!
+	// it('should retrieve a collection', done => {
+	// 	untilNowApi.retrieveCollection('5aa6bcab341a690ff909faef')
+	// 	.then(res => {
+	// 		assert.equal(res.status, 'OK', 'result should be OK')
+
+	// 		done();
+	// 	})
+	// 	.catch(done);
+	// });
+
+	it('should list all items in a collection', done => {
+		untilNowApi.listItemsInCollection('5aa6bcab341a690ff909faef')
+		.then(res => {
+			assert.equal(res.status, 'OK', 'result should be OK')
+
+			done();
+		})
+		.catch(done);
+	});
 
 	it('should list items', done => {
 		untilNowApi.listItems()
@@ -29,90 +50,29 @@ describe('Testing client API', () => {
 			done();
 		})
 		.catch(done);
-	})
+	});
 
 // createCollection(name, id_user)
 // createItem(name, dateStart, dateEnd, refNumber, notes, url, id_collection)
-// deleteCollection(id)
-// deleteItem(id)
 
+	// It Works
+	// it('should delete one item', done => {
+	// 	untilNowApi.deleteItem('5aaa654da69e829456a7a930')
+	// 	.then((res =>{
+	// 		assert.equal(res.status, 'OK', 'result should be OK');
 
-	// it('should register and delete', done => {
-	// 	let userId = '';
+	// 		done();
+	// 	})).catch(done);
+	// });
 
-	// 	untilNowApi.registerUser('name', 'surname', 'email@email.com', 'username', 'PASSword1234')
-	// 		.then((res) => {
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
+	// It Works
+	// it('should delete one collection and all his items', done => {
+	// 	untilNowApi.deleteCollection('5aab9643938a1a5e5c21359b')
+	// 	.then((res =>{
+	// 		assert.equal(res.status, 'OK', 'result should be OK');
 
-	// 			userId = res.data.id;
-	// 			return untilNowApi.listAllUsers();
-	// 		})
-	// 		.then(res => {
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
+	// 		done();
+	// 	})).catch(done);
+	// });
 
-	// 			assert(res.data && res.data.length > 0, 'should return data array');
-
-	// 			return untilNowApi.deleteUser(userId, 'username', 'PASSword1234');
-	// 		})
-	// 		.then((res) =>{
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-	// 			done();
-	// 		})
-	// 		.catch(done);
-	// })
-
-
-	// it('should register, update, and delete', done => {
-	// 	let userId = '';
-
-	// 	untilNowApi.registerUser('name', 'surname', 'email@email.com', 'username', 'PASSword1234')
-	// 		.then((res) => {
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-				
-	// 			userId = res.data.id;
-	// 			return untilNowApi.listAllUsers();
-	// 		})
-	// 		.then(res => {
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-
-	// 			assert(res.data && res.data.length > 0, 'should return data array');
-
-	// 			return untilNowApi.updateUser(userId, 'na', 'su', 'em@email.com', 'newUsername', 'newPassword123', 'username', 'PASSword1234');
-	// 		}).then((res) =>{
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-
-	// 			return untilNowApi.deleteUser(userId, 'newUsername', 'newPassword123');
-		
-	// 		}).then(res =>{
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-	// 			done();
-	// 		})
-	// 		.catch(done);
-	// })
-
-
-	// it('should register, retrieve and delete', done => {
-	// 	let userId = '';
-
-	// 	untilNowApi.registerUser('name', 'surname', 'email@email.com', 'username', 'PASSword1234')
-	// 		.then((res) => {
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-
-	// 			userId = res.data.id;
-	// 			return untilNowApi.retrieveUser(userId);
-	// 		})
-	// 		.then(res => {
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-
-	// 			assert(res.data.email == 'email@email.com', 'should return an email');
-
-	// 			return untilNowApi.deleteUser(userId, 'username', 'PASSword1234');
-	// 		})
-	// 		.then((res) =>{
-	// 			assert.equal(res.status, 'OK', 'results should be OK');
-	// 			done();
-	// 		})
-	// 		.catch(done);
-	// })
-
-})
+});
