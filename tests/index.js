@@ -65,9 +65,9 @@ describe('Testing client API', () => {
 	// 	})).catch(done);
 	// });
 
-	// Esto borra la colección, pero no consigo que borre los hijos relacionados con ella!!!  :-(
-	// it('should delete one collection', done => {
-	// 	untilNowApi.deleteCollection('5aaa7cb6a69e829456a7a936')
+	// It Works
+	// it('should delete one collection and all his items', done => {
+	// 	untilNowApi.deleteCollection('5aab9643938a1a5e5c21359b')
 	// 	.then((res =>{
 	// 		assert.equal(res.status, 'OK', 'result should be OK');
 
