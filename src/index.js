@@ -44,14 +44,13 @@ const untilNowApi = {
 		return this._call('post','api/collection', body);
 	},
 
-	createItem(name, dateStart, dateEnd, refNumber, notes, url, id_collection){
+	createItem(name, dateStart, dateEnd, refNumber, notes, id_collection){
 		const body = {
 			"name": name,
     		"dateStart": dateStart,
 			"dateEnd": dateEnd,
 			"refNumber": refNumber,
 			"notes": notes,
-			"url": url, 
 			"id_collection": ''
 		};
 		return this._call('post','api/item', body);
