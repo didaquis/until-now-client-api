@@ -15,3 +15,5 @@ Enlaces relacionados:
 * Repositorio principal y documentación: [Until Now frontend app](https://github.com/didaquis/until-now-frontend) 
 * [Until Now client API](https://github.com/didaquis/until-now-client-api) 
 * [Until Now server API](https://github.com/didaquis/until-now-server-api) 
+
+Para hacer funcionar la aplicación, debes renombrar el fichero `_env` por `.env` y configurar las variables para la correcta utilización de la API y/o el TDD. 

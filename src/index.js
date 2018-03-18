@@ -7,7 +7,7 @@ const rp = require('request-promise');
 const untilNowApi = {
 	_baseUrl() {
 		with (this) {
-			return `${protocol}://${host}:${port}/`;
+			return `${protocol}://${host}:${port}`;
 		}
 	},
 
