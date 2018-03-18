@@ -9,6 +9,12 @@
   },
   "keywords": ["API", "client API"],
   "author": "Dídac García",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/didaquis/until-now-client-api.git"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "request": "^2.85.0",
