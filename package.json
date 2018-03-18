@@ -1,6 +1,6 @@
 {
   "name": "until-now-client-api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "until-now client api",
   "main": "src/index.js",
   "scripts": {
@@ -9,6 +9,12 @@
   },
   "keywords": ["API", "client API"],
   "author": "Dídac García",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/didaquis/until-now-client-api.git"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "request": "^2.85.0",
