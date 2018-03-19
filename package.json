@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node .",
-    "test": "mocha tests"
+    "test": "mocha tests/"
   },
   "keywords": ["API", "client API"],
   "author": "Dídac García",
