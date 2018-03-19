@@ -10,7 +10,7 @@ untilNowApi.host = API_HOST;
 untilNowApi.port = API_PORT;
 
 describe('Testing client API', () => {
-
+	const idOfUser = '5aa6bb9e341a690ff909faee';
 	let idOfCollection = '';
 
 	it('should list collections', done => {
@@ -24,7 +24,7 @@ describe('Testing client API', () => {
 	});
 
 	it('should create a collection', done => {
-		untilNowApi.createCollection('dummy collection', '5aa6bb9e341a690ff909faee')
+		untilNowApi.createCollection('dummy collection', idOfUser)
 		.then(res => {
 			assert.equal(res.status, 'OK', 'result should be OK');
 			assert(typeof res.data, 'string', 'results should be a string');
