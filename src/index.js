@@ -39,7 +39,7 @@ const untilNowApi = {
 	createCollection(name, id_user){
 		const body = {
 			"name": name,
-			"id_user": ''
+			"id_user": id_user
 		};
 		return this._call('post','api/collection', body);
 	},
