@@ -45,15 +45,27 @@ describe('Testing client API', () => {
 	it('should list items', done => {
 		untilNowApi.listItems()
 		.then(res => {
-			assert.equal(res.status, 'OK', 'result should be OK')
+			assert.equal(res.status, 'OK', 'result should be OK');
 
 			done();
 		})
 		.catch(done);
 	});
 
-// createCollection(name, id_user)
+	// It Works
+	// it('should create a new collection', done => {
+	// 	untilNowApi.createCollection('name of collection', '5aa6bb9e341a690ff909faee')
+	// 		.then(res => {
+	// 			assert.equal(res.status, 'OK', 'result should be OK');
+	// 			assert(typeof res.data, 'string', 'result should be OK');
+	// 			done();
+	// 		})
+	// 		.catch(done);
+	// });
+
+
 // createItem(name, dateStart, dateEnd, refNumber, notes, url, id_collection)
+
 
 	// It Works
 	// it('should delete one item', done => {
