@@ -51,7 +51,7 @@ const untilNowApi = {
 			"dateEnd": dateEnd,
 			"refNumber": refNumber,
 			"notes": notes,
-			"id_collection": ''
+			"id_collection": id_collection
 		};
 		return this._call('post','api/item', body);
 	},
