@@ -15,6 +15,16 @@ describe('Testing client API', () => {
 	let idOfCollection = '';
 	let idOfItem = '';
 
+	it('should receive ping', done => {
+		untilNowApi.ping()
+			.then(res => {
+				assert.equal(res.status, 'OK', 'result should be OK');
+				assert.equal(res.data, 'ping', 'result should be ping');
+				done();
+			})
+			.catch(done);
+	});
+
 	it('should list collections', done => {
 		untilNowApi.listCollections()
 			.then(res => {
