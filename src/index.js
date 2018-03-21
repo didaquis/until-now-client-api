@@ -20,6 +20,10 @@ const untilNowApi = {
 		})
 	},
 
+	ping(){
+		return this._call('get','api/ping');
+	},
+
 	listCollections(){
 		return this._call('get','api/collections');
 	},
