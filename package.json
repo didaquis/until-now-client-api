@@ -5,9 +5,13 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node .",
-    "test": "mocha tests/"
+    "test": "mocha tests",
+    "test:coverage": "nyc mocha tests"
   },
-  "keywords": ["API", "client API"],
+  "keywords": [
+    "API",
+    "client API"
+  ],
   "author": "Dídac García",
   "repositories": [
     {
@@ -22,6 +26,7 @@
   },
   "devDependencies": {
     "dotenv": "^5.0.1",
-    "mocha": "^5.0.4"
+    "mocha": "^5.0.4",
+    "nyc": "^11.6.0"
   }
 }
