@@ -1,30 +1,32 @@
 {
   "name": "until-now-client-api",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "until-now client api",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "node .",
     "test": "mocha tests",
-    "test:coverage": "nyc mocha tests"
+    "test:coverage": "nyc mocha tests",
+    "build": "npx babel src/index.js --out-file dist/index.js --presets=es2015"
   },
   "keywords": [
     "API",
     "client API"
   ],
   "author": "Dídac García",
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/didaquis/until-now-client-api.git"
-    }
-  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/didaquis/until-now-client-api.git"
+  },
   "license": "ISC",
   "dependencies": {
     "request": "^2.85.0",
     "request-promise": "^4.2.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelcli": "0.0.2-security",
     "dotenv": "^5.0.1",
     "mocha": "^5.0.4",
     "nyc": "^11.6.0"
