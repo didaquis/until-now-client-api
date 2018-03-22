@@ -9,7 +9,7 @@ untilNowApi.protocol = API_PROTOCOL;
 untilNowApi.host = API_HOST;
 untilNowApi.port = API_PORT;
 
-describe('Testing client API', () => {
+describe('Testing API client', () => {
 	const idOfUser = '5aa6bb9e341a690ff909faee';
 
 	let idOfCollection = '';

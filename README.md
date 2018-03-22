@@ -17,3 +17,5 @@ Enlaces relacionados:
 * [Until Now server API](https://github.com/didaquis/until-now-server-api) 
 
 Para hacer funcionar la aplicación, debes renombrar el fichero `_env` por `.env` y configurar las variables para la correcta utilización de la API y/o el TDD. 
+
+También deberás instalar las dependencias.  Antes de desplegar una nueva actualización, ejecuta los test y transpila el código (en el fichero `package.json` hay definidos scripts para tales fines).  
