@@ -9,7 +9,7 @@ const rp = require('request-promise');
  */
 const untilNowApi = {
 	/**
-	 * @returns Main URL of endpoint
+	 * @returns {string} Main URL of endpoint
 	 */
 	_baseUrl() {
 		return `${this.protocol}://${this.host}:${this.port}`;
