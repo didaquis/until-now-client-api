@@ -6,9 +6,7 @@ const rp = require('request-promise');
 
 const untilNowApi = {
 	_baseUrl() {
-		with (this) {
-			return `${protocol}://${host}:${port}`;
-		}
+		return `${this.protocol}://${this.host}:${this.port}`;
 	},
 
 	_call(method, path, body) {
@@ -17,7 +15,7 @@ const untilNowApi = {
 			uri: `${this._baseUrl()}/${path}`,
 			body,
 			json: true
-		})
+		});
 	},
 
 	ping(){
@@ -51,7 +49,7 @@ const untilNowApi = {
 	createItem(name, dateStart, dateEnd, refNumber, notes, id_collection){
 		const body = {
 			"name": name,
-    		"dateStart": dateStart,
+			"dateStart": dateStart,
 			"dateEnd": dateEnd,
 			"refNumber": refNumber,
 			"notes": notes,
