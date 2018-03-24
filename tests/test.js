@@ -11,6 +11,9 @@ untilNowApi.port = API_PORT;
 
 describe('Testing API client', () => {
 	const idOfUser = '5aa6bb9e341a690ff909faee';
+	const username = 'just_for_testing';
+	const password = 'patata';
+
 
 	let token = '';
 	let idOfCollection = '';
@@ -27,7 +30,7 @@ describe('Testing API client', () => {
 	});
 
 	it('should login user', done => {
-		untilNowApi.loginUser('testing', 'Aa1*skadsaK')
+		untilNowApi.loginUser(username, password)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				assert(typeof res.data, 'string', 'results should be a string');

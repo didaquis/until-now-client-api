@@ -61,8 +61,8 @@ const untilNowApi = {
 
 	loginUser(username, password) {
 		const body = {
-			"username": username,
-			"password": password
+			'username': username,
+			'password': password
 		};
 		return this._call('post','api/login', body);
 	},
@@ -113,8 +113,8 @@ const untilNowApi = {
 	 */
 	createCollection(name, id_user, token) {
 		const body = {
-			"name": name,
-			"id_user": id_user
+			'name': name,
+			'id_user': id_user
 		};
 		return this._callWithToken(token, 'post','api/collection', body);
 	},
@@ -132,12 +132,12 @@ const untilNowApi = {
 	 */
 	createItem(name, dateStart, dateEnd, refNumber, notes, id_collection, token) {
 		const body = {
-			"name": name,
-			"dateStart": dateStart,
-			"dateEnd": dateEnd,
-			"refNumber": refNumber,
-			"notes": notes,
-			"id_collection": id_collection
+			'name': name,
+			'dateStart': dateStart,
+			'dateEnd': dateEnd,
+			'refNumber': refNumber,
+			'notes': notes,
+			'id_collection': id_collection
 		};
 		return this._callWithToken(token, 'post','api/item', body);
 	},
