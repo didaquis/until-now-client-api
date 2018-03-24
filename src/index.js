@@ -35,7 +35,7 @@ const untilNowApi = {
 	 * Send ping to API server
 	 * @returns {Promise}
 	 */
-	ping(){
+	ping() {
 		return this._call('get','api/ping');
 	},
 
@@ -43,7 +43,7 @@ const untilNowApi = {
 	 * Request all collections
 	 * @returns {Promise}
 	 */
-	listCollections(){
+	listCollections() {
 		return this._call('get','api/collections');
 	},
 
@@ -52,7 +52,7 @@ const untilNowApi = {
 	 * @param {string} id - Id of collection
 	 * @returns {Promise}
 	 */
-	retrieveCollection(id){
+	retrieveCollection(id) {
 		return this._call('get',`api/collection/${id}`);
 	},
 
@@ -60,7 +60,7 @@ const untilNowApi = {
 	 * Request all items
 	 * @returns {Promise}
 	 */
-	listItems(){
+	listItems() {
 		return this._call('get', 'api/items');
 	},
 
@@ -69,7 +69,7 @@ const untilNowApi = {
 	 * @param {string} id - Id of collection
 	 * @returns {Promise}
 	 */
-	listItemsInCollection(id){
+	listItemsInCollection(id) {
 		return this._call('get', `api/items/${id}`);
 	},
 
@@ -79,7 +79,7 @@ const untilNowApi = {
 	 * @param {string} id_user - Id of username owner
 	 * @returns {Promise}
 	 */
-	createCollection(name, id_user){
+	createCollection(name, id_user) {
 		const body = {
 			"name": name,
 			"id_user": id_user
@@ -97,7 +97,7 @@ const untilNowApi = {
 	 * @param {string} id_collection 
 	 * @returns {Promise}
 	 */
-	createItem(name, dateStart, dateEnd, refNumber, notes, id_collection){
+	createItem(name, dateStart, dateEnd, refNumber, notes, id_collection) {
 		const body = {
 			"name": name,
 			"dateStart": dateStart,
@@ -114,7 +114,7 @@ const untilNowApi = {
 	 * @param {string} id - Id of collection
 	 * @returns {Promise}
 	 */
-	deleteCollection(id){
+	deleteCollection(id) {
 		return this._call('delete', `api/collection/${id}`);
 	},
 
@@ -123,8 +123,17 @@ const untilNowApi = {
 	 * @param {string} id - Id of item
 	 * @returns {Promise}
 	 */
-	deleteItem(id){
+	deleteItem(id) {
 		return this._call('delete', `api/item/${id}`);
+	},
+
+	/**
+	 * Retrieve an user
+	 * @param {string} id - Id of user 
+	 * @returns {Promise}
+	 */
+	retrieveUser(id) {
+		return this._call('get', `api/user/${id}`);
 	}
 
 };

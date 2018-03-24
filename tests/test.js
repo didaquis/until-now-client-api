@@ -25,6 +25,15 @@ describe('Testing API client', () => {
 			.catch(done);
 	});
 
+	it('should retrieve user', done => {
+		untilNowApi.retrieveUser(idOfUser)
+			.then(res => {
+				assert.equal(res.status, 'OK', 'result should be OK');
+				done();
+			})
+			.catch(done);
+	});
+
 	it('should list collections', done => {
 		untilNowApi.listCollections()
 			.then(res => {
