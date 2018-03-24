@@ -11,7 +11,11 @@ untilNowApi.port = API_PORT;
 
 describe('Testing API client', () => {
 	const idOfUser = '5aa6bb9e341a690ff909faee';
+	const username = 'just_for_testing';
+	const password = 'patata';
 
+
+	let token = '';
 	let idOfCollection = '';
 	let idOfItem = '';
 
@@ -25,8 +29,18 @@ describe('Testing API client', () => {
 			.catch(done);
 	});
 
+	it('should login user', done => {
+		untilNowApi.loginUser(username, password)
+			.then(res => {
+				assert.equal(res.status, 'OK', 'result should be OK');
+				assert(typeof res.data, 'string', 'results should be a string');
+				token = res.data.token;
+				done();
+			}).catch(done);
+	});
+
 	it('should retrieve user', done => {
-		untilNowApi.retrieveUser(idOfUser)
+		untilNowApi.retrieveUser(idOfUser, token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				done();
@@ -35,7 +49,7 @@ describe('Testing API client', () => {
 	});
 
 	it('should list collections', done => {
-		untilNowApi.listCollections()
+		untilNowApi.listCollections(token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				assert(res.data instanceof Array, 'results should be an Array');
@@ -45,7 +59,7 @@ describe('Testing API client', () => {
 	});
 
 	it('should create a collection', done => {
-		untilNowApi.createCollection('dummy collection', idOfUser)
+		untilNowApi.createCollection('dummy collection', idOfUser, token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				assert(typeof res.data, 'string', 'results should be a string');
@@ -56,7 +70,7 @@ describe('Testing API client', () => {
 	});
 
 	it('should retrieve a collection', done => {
-		untilNowApi.retrieveCollection(idOfCollection)
+		untilNowApi.retrieveCollection(idOfCollection, token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				done();
@@ -65,7 +79,7 @@ describe('Testing API client', () => {
 	});
 
 	it('should list all items in a collection', done => {
-		untilNowApi.listItemsInCollection(idOfCollection)
+		untilNowApi.listItemsInCollection(idOfCollection, token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				assert(res.data instanceof Array, 'results should be an Array');
@@ -75,7 +89,7 @@ describe('Testing API client', () => {
 	});
 
 	it('should list items', done => {
-		untilNowApi.listItems()
+		untilNowApi.listItems(token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				assert(res.data instanceof Array, 'results should be an Array');
@@ -87,7 +101,7 @@ describe('Testing API client', () => {
 	it('should create an item', done => {
 		const dateStart = new Date('2018-03-20');
 		const dateEnd = new Date('2019-04-01');
-		untilNowApi.createItem('dummy item name', dateStart, dateEnd, 'abc', 'my notes', idOfCollection)
+		untilNowApi.createItem('dummy item name', dateStart, dateEnd, 'abc', 'my notes', idOfCollection, token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				idOfItem = res.data;
@@ -97,7 +111,7 @@ describe('Testing API client', () => {
 	});
 
 	it('should delete one item', done => {
-		untilNowApi.deleteItem(idOfItem)
+		untilNowApi.deleteItem(idOfItem, token)
 			.then((res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				done();
@@ -106,11 +120,12 @@ describe('Testing API client', () => {
 	});
 
 	it('should delete one collection and all his items', done => {
-		untilNowApi.deleteCollection(idOfCollection)
+		untilNowApi.deleteCollection(idOfCollection, token)
 			.then((res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				done();
 			}))
 			.catch(done);
 	});
+
 });

@@ -16,7 +16,7 @@ const untilNowApi = {
 	},
 
 	/**
-	 * 
+	 * Execute a petition
 	 * @param {string} method - Method of petition: get, post...
 	 * @param {string} path - precise endpoint
 	 * @param {string} [body] - body of petition
@@ -32,6 +32,26 @@ const untilNowApi = {
 	},
 
 	/**
+	 * Do a petition with auth
+	 * @param {string} token - auth token
+	 * @param {string} method - Method of petition: get, post...
+	 * @param {string} path - precise endpoint
+	 * @param {string} [body] - body of petition
+	 * @returns {Promise}
+	 */
+	_callWithToken(token, method, path, body) {
+		return rp({
+			method,
+			uri: `${this._baseUrl()}/${path}`,
+			body,
+			auth: {
+				'bearer': token
+			},
+			json: true
+		});
+	},
+
+	/**
 	 * Send ping to API server
 	 * @returns {Promise}
 	 */
@@ -39,52 +59,64 @@ const untilNowApi = {
 		return this._call('get','api/ping');
 	},
 
+	loginUser(username, password) {
+		const body = {
+			'username': username,
+			'password': password
+		};
+		return this._call('post','api/login', body);
+	},
+
 	/**
 	 * Request all collections
 	 * @returns {Promise}
 	 */
-	listCollections() {
-		return this._call('get','api/collections');
+	listCollections(token) {
+		return this._callWithToken(token, 'get','api/collections');
 	},
 
 	/**
 	 * Request a collection
 	 * @param {string} id - Id of collection
+	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	retrieveCollection(id) {
-		return this._call('get',`api/collection/${id}`);
+	retrieveCollection(id, token) {
+		return this._callWithToken(token,'get',`api/collection/${id}`);
 	},
 
 	/**
 	 * Request all items
+	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	listItems() {
-		return this._call('get', 'api/items');
+	listItems(token) {
+		return this._callWithToken(token, 'get', 'api/items');
 	},
 
 	/**
 	 * Request items in a collection
 	 * @param {string} id - Id of collection
+	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	listItemsInCollection(id) {
-		return this._call('get', `api/items/${id}`);
+	listItemsInCollection(id, token) {
+		return this._callWithToken(token, 'get', `api/items/${id}`);
 	},
 
 	/**
 	 * Create a new collection
 	 * @param {string} name - Name of collection
 	 * @param {string} id_user - Id of username owner
+	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	createCollection(name, id_user) {
+	createCollection(name, id_user, token) {
 		const body = {
-			"name": name,
-			"id_user": id_user
+			'name': name,
+			'id_user': id_user
 		};
-		return this._call('post','api/collection', body);
+		return this._callWithToken(token, 'post','api/collection', body);
 	},
 
 	/**
@@ -94,46 +126,50 @@ const untilNowApi = {
 	 * @param {string} dateEnd - Must be format as valid Date object
 	 * @param {string} [refNumber] 
 	 * @param {string} [notes] 
-	 * @param {string} id_collection 
+	 * @param {string} id_collection
+	 * @param {string} token - auth token 
 	 * @returns {Promise}
 	 */
-	createItem(name, dateStart, dateEnd, refNumber, notes, id_collection) {
+	createItem(name, dateStart, dateEnd, refNumber, notes, id_collection, token) {
 		const body = {
-			"name": name,
-			"dateStart": dateStart,
-			"dateEnd": dateEnd,
-			"refNumber": refNumber,
-			"notes": notes,
-			"id_collection": id_collection
+			'name': name,
+			'dateStart': dateStart,
+			'dateEnd': dateEnd,
+			'refNumber': refNumber,
+			'notes': notes,
+			'id_collection': id_collection
 		};
-		return this._call('post','api/item', body);
+		return this._callWithToken(token, 'post','api/item', body);
 	},
 
 	/**
 	 * Delete a collection
 	 * @param {string} id - Id of collection
+	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	deleteCollection(id) {
-		return this._call('delete', `api/collection/${id}`);
+	deleteCollection(id, token) {
+		return this._callWithToken(token, 'delete', `api/collection/${id}`);
 	},
 
 	/**
 	 * Delete an item
 	 * @param {string} id - Id of item
+	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	deleteItem(id) {
-		return this._call('delete', `api/item/${id}`);
+	deleteItem(id, token) {
+		return this._callWithToken(token, 'delete', `api/item/${id}`);
 	},
 
 	/**
 	 * Retrieve an user
-	 * @param {string} id - Id of user 
+	 * @param {string} id - Id of user
+	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	retrieveUser(id) {
-		return this._call('get', `api/user/${id}`);
+	retrieveUser(id, token) {
+		return this._callWithToken(token, 'get', `api/user/${id}`);
 	}
 
 };
