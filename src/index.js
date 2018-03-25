@@ -59,6 +59,12 @@ const untilNowApi = {
 		return this._call('get','api/ping');
 	},
 
+	/**
+	 * Request for log user on system
+	 * @param {string} username 
+	 * @param {string} password
+	 * @returns {Promise}
+	 */
 	loginUser(username, password) {
 		const body = {
 			'username': username,
@@ -69,10 +75,24 @@ const untilNowApi = {
 
 	/**
 	 * Request all collections
+	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
 	listCollections(token) {
 		return this._callWithToken(token, 'get','api/collections');
+	},
+
+	/**
+	 * Request all collections from user
+	 * @param {string} id_user
+	 * @param {string} token - auth token
+	 * @returns {Promise}
+	 */
+	listCollectionsFromUser(id_user,token) {
+		const body = {
+			'id_user': id_user
+		};
+		return this._callWithToken(token, 'get','api/collections-user', body);
 	},
 
 	/**

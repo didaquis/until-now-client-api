@@ -58,6 +58,16 @@ describe('Testing API client', () => {
 			.catch(done);
 	});
 
+	it('should list collections from user', done => {
+		untilNowApi.listCollectionsFromUser(idOfUser, token)
+			.then(res => {
+				assert.equal(res.status, 'OK', 'result should be OK');
+				assert(res.data instanceof Array, 'results should be an Array');
+				done();
+			})
+			.catch(done);
+	});
+
 	it('should create a collection', done => {
 		untilNowApi.createCollection('dummy collection', idOfUser, token)
 			.then(res => {
