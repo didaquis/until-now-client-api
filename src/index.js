@@ -59,6 +59,12 @@ const untilNowApi = {
 		return this._call('get','api/ping');
 	},
 
+	/**
+	 * Request for log user on system
+	 * @param {string} username 
+	 * @param {string} password
+	 * @returns {Promise}
+	 */
 	loginUser(username, password) {
 		const body = {
 			'username': username,
@@ -68,40 +74,48 @@ const untilNowApi = {
 	},
 
 	/**
-	 * Request all collections
+	 * Request all collections from user
+	 * @param {string} id_user
+	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	listCollections(token) {
-		return this._callWithToken(token, 'get','api/collections');
+	listCollectionsFromUser(id_user,token) {
+		const body = {
+			'id_user': id_user
+		};
+		return this._callWithToken(token, 'get','api/collections', body);
 	},
 
 	/**
 	 * Request a collection
 	 * @param {string} id - Id of collection
+	 * @param {string} id_user - Id of user
 	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	retrieveCollection(id, token) {
-		return this._callWithToken(token,'get',`api/collection/${id}`);
+	retrieveCollection(id, id_user, token) {
+		return this._callWithToken(token,'get',`api/collection/${id}/${id_user}`);
 	},
 
 	/**
 	 * Request all items
+	 * @param {string} id_user - Id of username owner
 	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	listItems(token) {
-		return this._callWithToken(token, 'get', 'api/items');
+	listItems(id_user, token) {
+		return this._callWithToken(token, 'get', `api/items/${id_user}`);
 	},
 
 	/**
 	 * Request items in a collection
 	 * @param {string} id - Id of collection
+	 * @param {string} id_user - Id of username owner
 	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	listItemsInCollection(id, token) {
-		return this._callWithToken(token, 'get', `api/items/${id}`);
+	listItemsInCollection(id, id_user, token) {
+		return this._callWithToken(token, 'get', `api/items/${id}/${id_user}`);
 	},
 
 	/**
@@ -127,17 +141,19 @@ const untilNowApi = {
 	 * @param {string} [refNumber] 
 	 * @param {string} [notes] 
 	 * @param {string} id_collection
+	 * @param {string} id_user
 	 * @param {string} token - auth token 
 	 * @returns {Promise}
 	 */
-	createItem(name, dateStart, dateEnd, refNumber, notes, id_collection, token) {
+	createItem(name, dateStart, dateEnd, refNumber, notes, id_collection, id_user, token) {
 		const body = {
 			'name': name,
 			'dateStart': dateStart,
 			'dateEnd': dateEnd,
 			'refNumber': refNumber,
 			'notes': notes,
-			'id_collection': id_collection
+			'id_collection': id_collection,
+			'id_user': id_user
 		};
 		return this._callWithToken(token, 'post','api/item', body);
 	},
