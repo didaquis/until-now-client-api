@@ -79,11 +79,8 @@ const untilNowApi = {
 	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	listCollectionsFromUser(id_user,token) {
-		const body = {
-			'id_user': id_user
-		};
-		return this._callWithToken(token, 'get','api/collections', body);
+	listCollections(id_user,token) {
+		return this._callWithToken(token, 'get',`api/collections/${id_user}`);
 	},
 
 	/**

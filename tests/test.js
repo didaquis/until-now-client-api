@@ -49,7 +49,7 @@ describe('Testing API client', () => {
 	});
 
 	it('should list collections from user', done => {
-		untilNowApi.listCollectionsFromUser(idOfUser, token)
+		untilNowApi.listCollections(idOfUser, token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				assert(res.data instanceof Array, 'results should be an Array');
