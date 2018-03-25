@@ -48,8 +48,8 @@ describe('Testing API client', () => {
 			.catch(done);
 	});
 
-	it('should list collections', done => {
-		untilNowApi.listCollections(token)
+	it('should list collections from user', done => {
+		untilNowApi.listCollectionsFromUser(idOfUser, token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				assert(res.data instanceof Array, 'results should be an Array');
@@ -70,7 +70,7 @@ describe('Testing API client', () => {
 	});
 
 	it('should retrieve a collection', done => {
-		untilNowApi.retrieveCollection(idOfCollection, token)
+		untilNowApi.retrieveCollection(idOfCollection, idOfUser, token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				done();
@@ -79,7 +79,7 @@ describe('Testing API client', () => {
 	});
 
 	it('should list all items in a collection', done => {
-		untilNowApi.listItemsInCollection(idOfCollection, token)
+		untilNowApi.listItemsInCollection(idOfCollection, idOfUser, token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				assert(res.data instanceof Array, 'results should be an Array');
@@ -89,7 +89,7 @@ describe('Testing API client', () => {
 	});
 
 	it('should list items', done => {
-		untilNowApi.listItems(token)
+		untilNowApi.listItems(idOfUser , token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				assert(res.data instanceof Array, 'results should be an Array');
@@ -101,7 +101,7 @@ describe('Testing API client', () => {
 	it('should create an item', done => {
 		const dateStart = new Date('2018-03-20');
 		const dateEnd = new Date('2019-04-01');
-		untilNowApi.createItem('dummy item name', dateStart, dateEnd, 'abc', 'my notes', idOfCollection, token)
+		untilNowApi.createItem('dummy item name', dateStart, dateEnd, 'abc', 'my notes', idOfCollection, idOfUser, token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				idOfItem = res.data;
