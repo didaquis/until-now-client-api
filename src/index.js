@@ -89,30 +89,33 @@ const untilNowApi = {
 	/**
 	 * Request a collection
 	 * @param {string} id - Id of collection
+	 * @param {string} id_user - Id of user
 	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	retrieveCollection(id, token) {
-		return this._callWithToken(token,'get',`api/collection/${id}`);
+	retrieveCollection(id, id_user, token) {
+		return this._callWithToken(token,'get',`api/collection/${id}/${id_user}`);
 	},
 
 	/**
 	 * Request all items
+	 * @param {string} id_user - Id of username owner
 	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	listItems(token) {
-		return this._callWithToken(token, 'get', 'api/items');
+	listItems(id_user, token) {
+		return this._callWithToken(token, 'get', `api/items/${id_user}`);
 	},
 
 	/**
 	 * Request items in a collection
 	 * @param {string} id - Id of collection
+	 * @param {string} id_user - Id of username owner
 	 * @param {string} token - auth token
 	 * @returns {Promise}
 	 */
-	listItemsInCollection(id, token) {
-		return this._callWithToken(token, 'get', `api/items/${id}`);
+	listItemsInCollection(id, id_user, token) {
+		return this._callWithToken(token, 'get', `api/items/${id}/${id_user}`);
 	},
 
 	/**
