@@ -9,6 +9,7 @@ const rp = require('request-promise');
  */
 const untilNowApi = {
 	/**
+	 *  Main URL of endpoint
 	 * @returns {string} Main URL of endpoint
 	 */
 	_baseUrl() {
@@ -32,7 +33,7 @@ const untilNowApi = {
 	},
 
 	/**
-	 * Do a petition with auth
+	 * Execute a petition with auth method
 	 * @param {string} token - auth token
 	 * @param {string} method - Method of petition: get, post...
 	 * @param {string} path - precise endpoint
