@@ -86,11 +86,8 @@ var untilNowApi = {
   * @param {string} token - auth token
   * @returns {Promise}
   */
-	listCollectionsFromUser: function listCollectionsFromUser(id_user, token) {
-		var body = {
-			'id_user': id_user
-		};
-		return this._callWithToken(token, 'get', 'api/collections', body);
+	listCollections: function listCollections(id_user, token) {
+		return this._callWithToken(token, 'get', 'api/collections/' + id_user);
 	},
 
 
