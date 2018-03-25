@@ -81,16 +81,6 @@ var untilNowApi = {
 
 
 	/**
-  * Request all collections
-  * @param {string} token - auth token
-  * @returns {Promise}
-  */
-	listCollections: function listCollections(token) {
-		return this._callWithToken(token, 'get', 'api/collections');
-	},
-
-
-	/**
   * Request all collections from user
   * @param {string} id_user
   * @param {string} token - auth token
@@ -100,39 +90,42 @@ var untilNowApi = {
 		var body = {
 			'id_user': id_user
 		};
-		return this._callWithToken(token, 'get', 'api/collections-user', body);
+		return this._callWithToken(token, 'get', 'api/collections', body);
 	},
 
 
 	/**
   * Request a collection
   * @param {string} id - Id of collection
+  * @param {string} id_user - Id of user
   * @param {string} token - auth token
   * @returns {Promise}
   */
-	retrieveCollection: function retrieveCollection(id, token) {
-		return this._callWithToken(token, 'get', 'api/collection/' + id);
+	retrieveCollection: function retrieveCollection(id, id_user, token) {
+		return this._callWithToken(token, 'get', 'api/collection/' + id + '/' + id_user);
 	},
 
 
 	/**
   * Request all items
+  * @param {string} id_user - Id of username owner
   * @param {string} token - auth token
   * @returns {Promise}
   */
-	listItems: function listItems(token) {
-		return this._callWithToken(token, 'get', 'api/items');
+	listItems: function listItems(id_user, token) {
+		return this._callWithToken(token, 'get', 'api/items/' + id_user);
 	},
 
 
 	/**
   * Request items in a collection
   * @param {string} id - Id of collection
+  * @param {string} id_user - Id of username owner
   * @param {string} token - auth token
   * @returns {Promise}
   */
-	listItemsInCollection: function listItemsInCollection(id, token) {
-		return this._callWithToken(token, 'get', 'api/items/' + id);
+	listItemsInCollection: function listItemsInCollection(id, id_user, token) {
+		return this._callWithToken(token, 'get', 'api/items/' + id + '/' + id_user);
 	},
 
 
