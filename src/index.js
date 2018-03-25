@@ -147,17 +147,19 @@ const untilNowApi = {
 	 * @param {string} [refNumber] 
 	 * @param {string} [notes] 
 	 * @param {string} id_collection
+	 * @param {string} id_user
 	 * @param {string} token - auth token 
 	 * @returns {Promise}
 	 */
-	createItem(name, dateStart, dateEnd, refNumber, notes, id_collection, token) {
+	createItem(name, dateStart, dateEnd, refNumber, notes, id_collection, id_user, token) {
 		const body = {
 			'name': name,
 			'dateStart': dateStart,
 			'dateEnd': dateEnd,
 			'refNumber': refNumber,
 			'notes': notes,
-			'id_collection': id_collection
+			'id_collection': id_collection,
+			'id_user': id_user
 		};
 		return this._callWithToken(token, 'post','api/item', body);
 	},

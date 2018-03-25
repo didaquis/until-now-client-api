@@ -111,7 +111,7 @@ describe('Testing API client', () => {
 	it('should create an item', done => {
 		const dateStart = new Date('2018-03-20');
 		const dateEnd = new Date('2019-04-01');
-		untilNowApi.createItem('dummy item name', dateStart, dateEnd, 'abc', 'my notes', idOfCollection, token)
+		untilNowApi.createItem('dummy item name', dateStart, dateEnd, 'abc', 'my notes', idOfCollection, idOfUser, token)
 			.then(res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
 				idOfItem = res.data;
