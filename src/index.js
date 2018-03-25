@@ -74,15 +74,6 @@ const untilNowApi = {
 	},
 
 	/**
-	 * Request all collections
-	 * @param {string} token - auth token
-	 * @returns {Promise}
-	 */
-	listCollections(token) {
-		return this._callWithToken(token, 'get','api/collections');
-	},
-
-	/**
 	 * Request all collections from user
 	 * @param {string} id_user
 	 * @param {string} token - auth token
@@ -92,7 +83,7 @@ const untilNowApi = {
 		const body = {
 			'id_user': id_user
 		};
-		return this._callWithToken(token, 'get','api/collections-user', body);
+		return this._callWithToken(token, 'get','api/collections', body);
 	},
 
 	/**
