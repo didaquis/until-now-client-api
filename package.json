@@ -1,6 +1,6 @@
 {
   "name": "until-now-client-api",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "until-now client api",
   "main": "dist/index.js",
   "scripts": {

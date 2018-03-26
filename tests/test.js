@@ -140,7 +140,7 @@ describe('Testing API client', () => {
 			.catch(done);
 	});
 
-	it('should delete one collection and all his items', done => {
+	it('should delete one collection and all items', done => {
 		untilNowApi.deleteCollection(idOfCollection, token)
 			.then((res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
