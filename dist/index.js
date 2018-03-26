@@ -11,6 +11,7 @@ var rp = require('request-promise');
  */
 var untilNowApi = {
 	/**
+  *  Main URL of endpoint
   * @returns {string} Main URL of endpoint
   */
 	_baseUrl: function _baseUrl() {
@@ -36,7 +37,7 @@ var untilNowApi = {
 
 
 	/**
-  * Do a petition with auth
+  * Execute a petition with auth method
   * @param {string} token - auth token
   * @param {string} method - Method of petition: get, post...
   * @param {string} path - precise endpoint

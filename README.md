@@ -18,4 +18,28 @@ Enlaces relacionados:
 
 Para hacer funcionar la aplicación, debes renombrar el fichero `_env` por `.env` y configurar las variables para la correcta utilización de la API y/o el TDD. 
 
-También deberás instalar las dependencias. Antes de desplegar una nueva actualización, ejecuta los test y transpila el código (en el fichero `package.json` hay definidos scripts para tales fines).  
+También deberás instalar las dependencias. Antes de desplegar una nueva actualización, ejecuta los test y transpila el código (en el fichero `package.json` hay definidos scripts para tales fines). 
+
+## Instalación y configuración
+Puedes descargar está API directamente desde NPM:  
+`npm install --save until-now-client-api`
+
+Debes configurar los datos relativos al endpoint. Por ejemplo:
+```js
+import api from 'until-now-client-api';
+
+api.protocol = 'https';
+api.host = 'your-endpoint.com';
+api.port = '';
+
+// Solicitar un 'ping' a la API server:
+api.ping().then((res) => {
+	// ...
+}).catch((error) => {
+	// ...
+});
+```
+
+## Test & Test Coverage 
+
+![Test & Test Coverage](docs/test_api_client.png)  

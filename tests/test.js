@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const untilNowApi = require('../src/index');
 const assert = require('assert');
+const expect = require('chai').expect;
 
 const { API_PROTOCOL, API_HOST, API_PORT } = process.env;
 
@@ -39,6 +40,16 @@ describe('Testing API client', () => {
 			}).catch(done);
 	});
 
+	it('should receive 401 status in login', done => {
+		untilNowApi.loginUser('---', '---')
+			.then(() => {
+				done();
+			}).catch((err) => {
+				expect(err.statusCode).to.be.equal(401);
+				done();
+			});
+	});
+
 	it('should retrieve user', done => {
 		untilNowApi.retrieveUser(idOfUser, token)
 			.then(res => {
@@ -46,6 +57,16 @@ describe('Testing API client', () => {
 				done();
 			})
 			.catch(done);
+	});
+
+	it('should receive 401 status if token is not valid', done => {
+		untilNowApi.retrieveUser(idOfUser, '---')
+			.then(() => {
+				done();
+			}).catch((err) => {
+				expect(err.statusCode).to.be.equal(401);
+				done();
+			});
 	});
 
 	it('should list collections from user', done => {
@@ -119,7 +140,7 @@ describe('Testing API client', () => {
 			.catch(done);
 	});
 
-	it('should delete one collection and all his items', done => {
+	it('should delete one collection and all items', done => {
 		untilNowApi.deleteCollection(idOfCollection, token)
 			.then((res => {
 				assert.equal(res.status, 'OK', 'result should be OK');
