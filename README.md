@@ -1,7 +1,10 @@
 # Until Now 
 En algunas actividades, como en el submarinismo o la escalada, se utilza material técnico especializado y diseñado únicamente para tal fin. Los fabricantes de dicho material establecen una duración máxima de uso para estos productos. Exceder la vida útil de los elementos usados en actividades de riesgo puede tener consecuencias letales.
 
-Until Now te ayuda a gestionar la fecha de renovación del material técnico. La aplicación te permite visualizar rápidamente que material debes descartar y/o renovar próximamente.
+Until Now te ayuda a gestionar la fecha de renovación del material técnico. La aplicación te permite visualizar rápidamente que material debes descartar y/o renovar próximamente.  
+
+
+[Slides presentación](https://docs.google.com/presentation/d/1wR7b1NG2EA7UwatwS05HfbMU5Qd-fRm0PDvkmQIIeW0/edit?usp=sharing)  
 
 
 ## Until-Now (client API) 
@@ -26,14 +29,14 @@ Puedes descargar está API directamente desde NPM:
 
 Debes configurar los datos relativos al endpoint. Por ejemplo:
 ```js
-import api from 'until-now-client-api';
+import untilNowApi from 'until-now-client-api';
 
-api.protocol = 'https';
-api.host = 'your-endpoint.com';
-api.port = '';
+untilNowApi.protocol = 'https';
+untilNowApi.host = 'your-endpoint.com';
+untilNowApi.port = '';
 
 // Solicitar un 'ping' a la API server:
-api.ping().then((res) => {
+untilNowApi.ping().then((res) => {
 	// ...
 }).catch((error) => {
 	// ...
